@@ -1,0 +1,10 @@
+*.jar 
+
+# Files
+.classpath
+.project
+
+# Ordner
+
+.settings/
+bin/
