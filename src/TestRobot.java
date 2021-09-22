@@ -13,30 +13,31 @@ public class TestRobot {
 	
 	static RegulatedMotor leftMotor = new EV3LargeRegulatedMotor(MotorPort.B);
 	static RegulatedMotor rightMotor = new EV3LargeRegulatedMotor(MotorPort.C);
-	static EV3ColorSensor sensor = new EV3ColorSensor(SensorPort.S1);
-	
+	static EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);
 	
 	public static void main(String[] args) {
 		
-		sensor.getAmbientMode();
-		int i=2;
+		int i=1;
+		//Hier Deklariere ich eine Neue Variable mit dem Wert i für eine endlos schleife
+			
+		rightMotor.synchronizeWith(new RegulatedMotor[] {leftMotor});	
+		//Hier synchronisiere ich die beiden Motoren
 		
-		while(i>1)
-		{
-			if ( > .100)
-            {
-                leftMotor.setSpeed(40);
-                rightMotor.setSpeed(20);
-            }
-            else
-            {
-                leftMotor.setSpeed(20);    
-                rightMotor.setSpeed(40);
-            }
+		while(i<2) {
+		rightMotor.startSynchronization();
+		//Hier starte ich die synchronisierung der Motoren
+		rightMotor.forward();
+		leftMotor.forward();
+		Delay.msDelay(3000);
+		rightMotor.stop();
+		leftMotor.stop();
+		//Hier fährt der Roboter 3 sekunde nach vorne und bleibt stehen
+		rightMotor.endSynchronization();
+		//Hier ende ich die synchronisierung der Motoren
+		leftMotor.rotate(-180); //Drehung
+		rightMotor.rotate(360);
 		}
-		
-		
-		
 	}
+	
 
 }
