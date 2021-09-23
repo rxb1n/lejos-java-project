@@ -1,12 +1,9 @@
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.robotics.RegulatedMotor;
-import lejos.utility.Delay;
-import lejos.hardware.Button; 
-import lejos.hardware.lcd.LCD; 
+import lejos.utility.Delay; 
 import lejos.hardware.port.SensorPort; 
-import lejos.hardware.sensor.EV3ColorSensor; 
-import lejos.robotics.SampleProvider; 
+import lejos.hardware.sensor.EV3ColorSensor;  
 
 
 public class TestRobot {
@@ -17,25 +14,29 @@ public class TestRobot {
 	
 	public static void main(String[] args) {
 		
-		int i=1;
+		int i=0;
 		//Hier Deklariere ich eine Neue Variable mit dem Wert i für eine endlos schleife
 			
-		rightMotor.synchronizeWith(new RegulatedMotor[] {leftMotor});	
+		rightMotor.synchronizeWith(new RegulatedMotor[] {leftMotor});
 		//Hier synchronisiere ich die beiden Motoren
 		
-		while(i<2) {
+		while(i<4) {
 		rightMotor.startSynchronization();
 		//Hier starte ich die synchronisierung der Motoren
-		rightMotor.forward();
+		rightMotor.setSpeed(360);
+		leftMotor.setSpeed(360);
+		//Hier sage ich wie viel grad die Motoren pro sekunde in grad sich drehen sollen 360 Grad eine umdrehung
 		leftMotor.forward();
-		Delay.msDelay(3000);
+		rightMotor.forward();
+		Delay.msDelay(2000);
 		rightMotor.stop();
 		leftMotor.stop();
 		//Hier fährt der Roboter 3 sekunde nach vorne und bleibt stehen
 		rightMotor.endSynchronization();
 		//Hier ende ich die synchronisierung der Motoren
-		leftMotor.rotate(-180); //Drehung
-		rightMotor.rotate(360);
+		rightMotor.rotateTo(418);//90° Drehung
+		//Hier lasse ich die schleife 4 mal ausführen
+		i++;
 		}
 	}
 	
