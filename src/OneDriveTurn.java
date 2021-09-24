@@ -13,6 +13,53 @@ public class OneDriveTurn {
 		
 		  rightMotor.synchronizeWith(new RegulatedMotor[] {leftMotor});
 
+		  rightMotor.startSynchronization();
 		  
+		  rightMotor.forward();
+		  leftMotor.forward();
+		  
+		  rightMotor.endSynchronization();
+		  
+		  Delay.msDelay(4000);
+		  
+		  rightMotor.setAcceleration(1000);
+		  leftMotor.setAcceleration(1000);
+		  
+		  rightMotor.startSynchronization();
+		  
+		  rightMotor.stop(true);
+		  leftMotor.stop(true);
+		  
+		  rightMotor.endSynchronization();
+		  
+		  Delay.msDelay(500);
+		  
+		  rightMotor.rotate(400);
+		  rightMotor.stop();
+		  leftMotor.rotate(-400);
+		  leftMotor.stop();
+		  
+		  rightMotor.startSynchronization();
+		  
+		  rightMotor.forward();
+		  leftMotor.forward();
+		  
+		  rightMotor.endSynchronization();
+		  
+		  Delay.msDelay(4000);
+		  
+		  rightMotor.setAcceleration(1000);
+		  leftMotor.setAcceleration(1000);
+		  
+		  rightMotor.startSynchronization();
+		  
+		  rightMotor.stop(true);
+		  leftMotor.stop(true);
+		  
+		  rightMotor.endSynchronization();
+		  
+		  
+		  rightMotor.waitComplete();
+		  leftMotor.waitComplete();
 	}
 }
