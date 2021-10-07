@@ -10,12 +10,11 @@ public class SquareDrive {
 	
 	static RegulatedMotor leftMotor = new EV3LargeRegulatedMotor(MotorPort.B);
 	static RegulatedMotor rightMotor = new EV3LargeRegulatedMotor(MotorPort.C);
-	static EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);
 	
 	public static void main(String[] args) {
 		
 		int i=0;
-		//Hier Deklariere ich eine Neue Variable mit dem Wert i für eine endlos schleife
+		//Hier Deklariere ich eine Neue Variable mit dem Wert i fÃ¼r eine endlos schleife
 			
 		rightMotor.synchronizeWith(new RegulatedMotor[] {leftMotor});
 		//Hier synchronisiere ich die beiden Motoren
@@ -24,12 +23,12 @@ public class SquareDrive {
 		{
 		rightMotor.startSynchronization();//Hier starte ich die synchronisierung der Motoren
 		
-		leftMotor.forward(); //Roboter Fährt
+		leftMotor.forward(); //Roboter FÃ¤hrt
 		rightMotor.forward();
 		
 		rightMotor.endSynchronization();//Hier ende ich die synchronisierung der Motore
 		
-		Delay.msDelay(3500);//Hier fährt der Roboter 5 sekunden nach vorne
+		Delay.msDelay(3500);//Hier fÃ¤hrt der Roboter 5 sekunden nach vorne
 		
 		
 		rightMotor.setAcceleration(1000);
@@ -47,9 +46,9 @@ public class SquareDrive {
 		rightMotor.waitComplete();
 		leftMotor.waitComplete();
 		
-		rightMotor.rotate(412);//90° Drehung 418°
+		rightMotor.rotate(412);//90Â° Drehung 418Â°
 		
-		i++;//Hier lasse ich die schleife 4 mal ausführen
+		i++;//Hier lasse ich die schleife 4 mal ausfÃ¼hren
 		}while(i<4);
 		
 	 }	
